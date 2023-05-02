@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package audio;
+
+service AudioService {
+    rpc SendAudio (stream AudioChunk) returns (AudioResponse) {}
+}
+
+message AudioChunk {
+    bytes data = 1;
+}
+
+message AudioResponse {
+    string message = 1;
+}
+

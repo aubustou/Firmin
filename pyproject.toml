@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "firmin"
+description = "Transcript from afar"
+readme = "README.rst"
+requires-python = ">=3.10"
+keywords = ["audio", "Whisper"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "openai-whisper",
+		"pyaudio",
+		"wave",
+		"grpcio",
+		"grpcio-tools",
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+packages = ["firmin"]
+
+[project.optional-dependencies]
+tests = ["pytest"]
+dev = ["pdbpp"]
+linter = ["mypy", "pylint", "bandit"]
+
+[project.scripts]
+firmin-server-grpc = "firmin.grpc_server:serve"
+firmin-client-grpc = "firmin.grpc_client:main"
+firmin-client = "firmin.socket_client:main"
+firmin-server = "firmin.socket_server:main"
