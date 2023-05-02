@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import audio_service_pb2 as audio__service__pb2
+from . import audio_service_pb2 as audio__service__pb2
 
 
 class AudioServiceStub(object):
